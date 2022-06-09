@@ -24,4 +24,37 @@ public class TestTicketManager {
 
         assertArrayEquals(expected, actual);
     }
+
+    @Test
+    void shouldFindTicketByIataCode() {
+        TicketRepository repository = new TicketRepository();
+        TicketManager manager = new TicketManager();
+
+        repository.save(one);
+        repository.save(two);
+        repository.save(three);
+        repository.save(four);
+
+        Ticket[] expected = {four};
+        Ticket[] actual = manager.findAll("SVO", "AER");
+
+        assertArrayEquals(expected, actual);
+    }
+
+    @Test
+    void shouldFindIfTicketDoesntExist() {
+        TicketRepository repository = new TicketRepository();
+        TicketManager manager = new TicketManager();
+
+        repository.save(one);
+        repository.save(two);
+        repository.save(three);
+        repository.save(four);
+
+        Ticket[] expected = {};
+        Ticket[] actual = manager.findAll("BTK", "VVO");
+
+        assertArrayEquals(expected, actual);
+    }
+
 }
