@@ -35,12 +35,13 @@ public class TicketManager {
     }
 
     public boolean matches(Ticket ticket, String airportDeparture, String airportArrival) {
-        if (ticket.getAirportDeparture().contains(airportDeparture) && (ticket.getAirportArrival().contains(airportArrival))) {
-            return true;
-        } else {
+        if (ticket.getAirportDeparture() != airportDeparture) {
             return false;
         }
-
+        if (ticket.getAirportArrival() != airportArrival) {
+            return false;
+        }
+        return true;
     }
 
 }

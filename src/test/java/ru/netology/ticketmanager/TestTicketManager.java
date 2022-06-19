@@ -30,15 +30,15 @@ public class TestTicketManager {
         TicketRepository repository = new TicketRepository();
         TicketManager manager = new TicketManager();
 
-        repository.save(one);
-        repository.save(two);
-        repository.save(three);
-        repository.save(four);
+        manager.add(one);
+        manager.add(two);
+        manager.add(three);
+        manager.add(four);
 
-        Ticket[] expected = {four};
-        Ticket[] actual = manager.findAll("SVO", "AER");
+        Ticket[] expected = new Ticket[0];
 
-        assertArrayEquals(expected, actual);
+
+        assertArrayEquals(expected, manager.findAll("SVO", "AER"));
     }
 
     @Test
