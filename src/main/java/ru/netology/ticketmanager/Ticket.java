@@ -3,7 +3,6 @@ package ru.netology.ticketmanager;
 public class Ticket implements Comparable<Ticket> {
 
 
-
     protected int id;
     protected int price;
     protected String airportDeparture;
